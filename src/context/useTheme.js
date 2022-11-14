@@ -21,7 +21,10 @@ export const useTheme = () => {
 
   const isDark = isPreferredTheme ? userColorScheme === "dark" : theme === "dark";
   const isLight = isPreferredTheme ? userColorScheme === "light" : theme === "light";
-  const toggleTheme = () => setTheme((current) => current === "light" ? "dark" : "light");
+  const toggleTheme = () => setTheme((current) => {
+    if (isPreferredTheme) return userColorScheme === "light" ? "dark" : "light"
+    return current === "light" ? "dark" : "light"
+  });
 
   // Set theme to user color scheme or selected theme.
   const currentTheme = isPreferredTheme ? userColorScheme : theme
