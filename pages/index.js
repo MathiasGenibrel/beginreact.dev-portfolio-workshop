@@ -19,7 +19,7 @@ const Home = () => {
       <Head>
         <title>Portfolio</title>
       </Head>
-      <Script strategy={"beforeInteractive"} src={'/clientSyncCSSVariables.js'} />
+      <Script strategy={"beforeInteractive"} type="module" src={'/scripts/initClientCSSVariables.js'} />
       <div className="flex flex-col gap-40">
         <Header />
         <HeroSection />

@@ -1,21 +1,9 @@
 import { useEffect, useState } from "react";
 import { useUserColorScheme } from "./useUserColorScheme";
+import { setVariableCSS } from "../../public/scripts/setVariablesCSS";
 
 // Key for localStorage
 const THEME_LOCAL_KEY = "theme";
-
-const setVariableCSS = (theme) => {
-  const themeCSSVariables =
-    localStorage.getItem("themeVariables") &&
-    JSON.parse(localStorage.getItem("themeVariables"));
-
-  for (const variableName in themeCSSVariables[theme]) {
-    document.body.style.setProperty(
-      `--color-${variableName}`,
-      themeCSSVariables[theme][variableName]
-    );
-  }
-};
 
 export const useTheme = () => {
   // Use "preferred" to default value, to know if user set a value for color scheme.
